@@ -1,0 +1,56 @@
+{
+  // Editor:
+  "editor.rulers": [80],
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+
+  // Files:
+  "files.watcherExclude": {
+    // VSCode:
+    "**/.history/**": true,
+    // Elixir:
+    "**/_build/**": true,
+    "**/.elixir_ls/**": true,
+    "**/erl_crash.dump": true
+  },
+
+  // Search:
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/.elixir_ls": true
+  },
+
+  // Spelling:
+  "cSpell.enableFiletypes": [
+    "dockercompose",
+    "dockerfile",
+    "elixir",
+    "json",
+    "jsonc",
+    "makefile",
+    "markdown",
+    "yaml",
+    "yml"
+  ],
+  "cSpell.userWords": ["markdownlint", "nosborn"],
+  "cSpell.words": [
+    "deps",
+    "fkirc",
+    "hadolint"
+  ],
+
+  // Override languages:
+  "[elixir]": {
+    "editor.rulers": [98]
+  },
+
+  // VSIcons:
+  "vsicons.associations.files": [
+    {
+      "icon": "docker",
+      "extensions": ["docker-compose.dev.yml", "docker-compose.override.yml"],
+      "filename": true,
+      "extends": "docker"
+    }
+  ]
+}

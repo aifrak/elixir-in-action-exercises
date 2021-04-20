@@ -1,3 +1,7 @@
+# VSCode
+.history
+
+# Elixir
 /_build
 /cover
 /deps
