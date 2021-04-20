@@ -1,0 +1,25 @@
+{
+  "recommendations": [
+    // Elixir:
+    "jakebecker.elixir-ls",
+
+    // EditorConfig:
+    "editorconfig.editorconfig",
+
+    // Tasks / Makefile targets
+    "spmeesseman.vscode-taskexplorer",
+
+    // Markdown:
+    "davidanson.vscode-markdownlint",
+    "shd101wyy.markdown-preview-enhanced",
+    "yzhang.markdown-all-in-one",
+
+    // Formatters:
+    "esbenp.prettier-vscode", // YAML, Markdown
+
+    // Comments:
+    "stackbreak.comment-divider"
+  ],
+
+  "unwantedRecommendations": []
+}

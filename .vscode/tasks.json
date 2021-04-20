@@ -1,0 +1,225 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    /* -------------------------------------------- */
+    /*                  Application                 */
+    /* -------------------------------------------- */
+    {
+      "label": "app-access",
+      "type": "shell",
+      "command": "make",
+      "args": ["app-access", "APP_SHELL=${input:appShell}"],
+      "problemMatcher": [],
+      "detail": "Access the app service"
+    },
+    /* -------------------------------------------- */
+    /*                    Docker                    */
+    /* -------------------------------------------- */
+    {
+      "label": "docker-build",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "docker-build",
+        "ENV=${input:dockerComposeEnv}",
+        "FORCE_RECREATE=${input:dockerForceRecreate}"
+      ],
+      "problemMatcher": [],
+      "detail": "Build images"
+    },
+    {
+      "label": "docker-build-up",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "docker-build-up",
+        "ENV=${input:dockerComposeEnv}",
+        "FORCE_RECREATE=${input:dockerForceRecreate}"
+      ],
+      "problemMatcher": [],
+      "detail": "Build images, start all and clean"
+    },
+    {
+      "label": "docker-clean",
+      "type": "shell",
+      "command": "make",
+      "args": ["docker-clean"],
+      "problemMatcher": [],
+      "detail": "Remove all docker unused data"
+    },
+    {
+      "label": "docker-clean-all",
+      "type": "shell",
+      "command": "make",
+      "args": ["docker-clean-all"],
+      "problemMatcher": [],
+      "detail": "Remove all unused data"
+    },
+    {
+      "label": "docker-container-id",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "docker-container-id",
+        "SERVICE=${input:dockerComposeServiceId}"
+      ],
+      "problemMatcher": [],
+      "detail": "Get the container id from a service id"
+    },
+    {
+      "label": "docker-down",
+      "type": "shell",
+      "command": "make",
+      "args": ["docker-down", "SERVICE=${input:dockerComposeServiceId}"],
+      "problemMatcher": [],
+      "detail": "Stop and remove services"
+    },
+    {
+      "label": "docker-images",
+      "type": "shell",
+      "command": "make",
+      "args": ["docker-images"],
+      "problemMatcher": [],
+      "detail": "Show a list of images"
+    },
+    {
+      "label": "docker-logs",
+      "type": "shell",
+      "command": "make",
+      "args": ["docker-logs", "SERVICE=${input:dockerComposeServiceId}"],
+      "problemMatcher": [],
+      "detail": "Show logs of all services and follow from the last 20 lines"
+    },
+    {
+      "label": "docker-restart",
+      "type": "shell",
+      "command": "make",
+      "args": ["docker-restart", "SERVICE=${input:dockerComposeServiceId}"],
+      "problemMatcher": [],
+      "detail": "Restart services"
+    },
+    {
+      "label": "docker-start",
+      "type": "shell",
+      "command": "make",
+      "args": ["docker-start", "SERVICE=${input:dockerComposeServiceId}"],
+      "problemMatcher": [],
+      "detail": "Start services"
+    },
+    {
+      "label": "docker-stop",
+      "type": "shell",
+      "command": "make",
+      "args": ["docker-stop", "SERVICE=${input:dockerComposeServiceId}"],
+      "problemMatcher": [],
+      "detail": "Stop services"
+    },
+    {
+      "label": "docker-prune-volumes",
+      "type": "shell",
+      "command": "make",
+      "args": ["docker-prune-volumes"],
+      "problemMatcher": [],
+      "detail": "Clean unused volumes"
+    },
+    {
+      "label": "docker-ps",
+      "type": "shell",
+      "command": "make",
+      "args": ["docker-ps", "SERVICE=${input:dockerComposeServiceId}"],
+      "problemMatcher": [],
+      "detail": "Show status of services"
+    },
+    {
+      "label": "docker-pull",
+      "type": "shell",
+      "command": "make",
+      "args": ["docker-pull"],
+      "problemMatcher": [],
+      "detail": "Pull images"
+    },
+    {
+      "label": "docker-rm-container-with-volumes",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "docker-rm-container-with-volumes",
+        "NAME=${input:dockerComposeServiceId}"
+      ],
+      "problemMatcher": [],
+      "detail": "Remove all containers with volumes, else show errors"
+    },
+    {
+      "label": "docker-rm-stopped-containers",
+      "type": "shell",
+      "command": "make",
+      "args": ["docker-rm-stopped-containers"],
+      "problemMatcher": [],
+      "detail": "Remove all non running containers, else show errors"
+    },
+    {
+      "label": "docker-rm-dangling-images",
+      "type": "shell",
+      "command": "make",
+      "args": ["docker-rm-dangling-images"],
+      "problemMatcher": [],
+      "detail": "Delete all untagged/dangling (<none>) images, else show errors"
+    },
+    {
+      "label": "docker-rm-dangling-volumes",
+      "type": "shell",
+      "command": "make",
+      "args": ["docker-rm-dangling-volumes"],
+      "problemMatcher": [],
+      "detail": "Delete all untagged/dangling (<none>) volumes, else show errors"
+    },
+    {
+      "label": "docker-up",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "docker-up",
+        "ENV=${input:dockerComposeEnv}",
+        "FORCE_RECREATE=${input:dockerForceRecreate}"
+      ],
+      "problemMatcher": [],
+      "detail": "Start all containers"
+    }
+  ],
+  "inputs": [
+    /* -------------------------------------------- */
+    /*                  Application                 */
+    /* -------------------------------------------- */
+    {
+      "id": "appShell",
+      "type": "pickString",
+      "description": "Shell to access the container?",
+      "options": ["bash", "sh", "zsh"],
+      "default": "zsh"
+    },
+    /* -------------------------------------------- */
+    /*                    Docker                    */
+    /* -------------------------------------------- */
+    {
+      "id": "dockerComposeEnv",
+      "type": "pickString",
+      "description": "Environment?",
+      "options": ["dev", "prod"],
+      "default": "dev"
+    },
+    {
+      "id": "dockerComposeServiceId",
+      "type": "pickString",
+      "description": "Service name?",
+      "options": ["app"],
+      "default": "app"
+    },
+    {
+      "id": "dockerForceRecreate",
+      "type": "pickString",
+      "description": "Recreate all containers?",
+      "options": ["y", "n"],
+      "default": "n"
+    }
+  ]
+}
