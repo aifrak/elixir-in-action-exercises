@@ -33,11 +33,7 @@
     "yml"
   ],
   "cSpell.userWords": ["markdownlint", "nosborn"],
-  "cSpell.words": [
-    "deps",
-    "fkirc",
-    "hadolint"
-  ],
+  "cSpell.words": ["deps", "fkirc", "hadolint"],
 
   // Override languages:
   "[elixir]": {
